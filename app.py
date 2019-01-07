@@ -23,6 +23,7 @@ handler = WebhookHandler(YOUR_CHANNEL_SECRET)
 def hello_world():
     return "hello world!"
 
+
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
@@ -49,4 +50,6 @@ def handle_message(event):
 
 
 if __name__ == "__main__":
-    app.run()
+#    app.run()
+    port = int(os.getenv("PORT",5000))
+    app.run(host="0.0.0.0", port=port)
