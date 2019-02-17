@@ -46,7 +46,7 @@ def callback():
 def handle_message(event):
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text))
+        TextSendMessage(originalContentUrl="https://www.shimay.uno/nekoguruma/wp-content/uploads/sites/2/2018/03/20171106_212850-973x649.jpg",previewImageUrl="https://www.shimay.uno/nekoguruma/wp-content/uploads/sites/2/2018/03/20171106_212850-508x339.jpg"))
 
 
 if __name__ == "__main__":
