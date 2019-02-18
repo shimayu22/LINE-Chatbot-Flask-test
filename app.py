@@ -6,7 +6,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
+    MessageEvent, TextMessage, TextSendMessage　, ImageMessage ,ImageSendMessage ,
 )
 import os
 
@@ -42,11 +42,11 @@ def callback():
     return 'OK'
 
 
-@handler.add(MessageEvent, message=TextMessage)
-def handle_message(event):
+@handler.add(MessageEvent, message=(TextMessage))
+def handle_image_message(event):
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(originalContentUrl="https://www.shimay.uno/nekoguruma/wp-content/uploads/sites/2/2018/03/20171106_212850-973x649.jpg",previewImageUrl="https://www.shimay.uno/nekoguruma/wp-content/uploads/sites/2/2018/03/20171106_212850-508x339.jpg"))
+        ImageSendMessage(originalContentUrl="https://www.shimay.uno/nekoguruma/wp-content/uploads/sites/2/2018/03/20171106_212850-973x649.jpg",previewImageUrl="https://www.shimay.uno/nekoguruma/wp-content/uploads/sites/2/2018/03/20171106_212850-508x339.jpg"))
 
 
 if __name__ == "__main__":
