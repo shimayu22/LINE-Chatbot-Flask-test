@@ -6,7 +6,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage　, ImageMessage ,ImageSendMessage
+    MessageEvent, TextMessage, TextSendMessage, ImageMessage,ImageSendMessage
 )
 import os
 
@@ -18,6 +18,13 @@ YOUR_CHANNEL_SECRET = os.environ["YOUR_CHANNEL_SECRET"]
 
 line_bot_api = LineBotApi(YOUR_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(YOUR_CHANNEL_SECRET)
+
+def make_image_message():
+    messages = ImageSendMessage(
+        originalContentUrl="https://www.shimay.uno/nekoguruma/wp-content/uploads/sites/2/2018/03/20171106_212850-973x649.jpg",
+        previewImageUrl="https://www.shimay.uno/nekoguruma/wp-content/uploads/sites/2/2018/03/20171106_212850-508x339.jpg"
+    )
+    return messages
 
 @app.route("/")
 def hello_world():
@@ -44,9 +51,10 @@ def callback():
 
 @handler.add(MessageEvent, message=(TextMessage))
 def handle_image_message(event):
+    messages = make_image_message()
     line_bot_api.reply_message(
         event.reply_token,
-        ImageSendMessage(originalContentUrl="https://www.shimay.uno/nekoguruma/wp-content/uploads/sites/2/2018/03/20171106_212850-973x649.jpg",previewImageUrl="https://www.shimay.uno/nekoguruma/wp-content/uploads/sites/2/2018/03/20171106_212850-508x339.jpg"))
+        messages)
 
 
 if __name__ == "__main__":
