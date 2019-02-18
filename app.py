@@ -21,8 +21,8 @@ handler = WebhookHandler(YOUR_CHANNEL_SECRET)
 
 def make_image_message():
     messages = ImageSendMessage(
-        originalContentUrl="https://www.shimay.uno/nekoguruma/wp-content/uploads/sites/2/2018/03/20171106_212850-508x339.jpg",
-        previewImageUrl="https://www.shimay.uno/nekoguruma/wp-content/uploads/sites/2/2019/02/IMG_6154.jpg"
+        original_content_url="https://www.shimay.uno/nekoguruma/wp-content/uploads/sites/2/2018/03/20171106_212850-508x339.jpg",
+        preview_image_url=="https://www.shimay.uno/nekoguruma/wp-content/uploads/sites/2/2019/02/IMG_6154.jpg"
     )
     return messages
 
@@ -52,6 +52,7 @@ def callback():
 @handler.add(MessageEvent, message=(TextMessage))
 def handle_image_message(event):
     messages = make_image_message()
+    print(messages)
     line_bot_api.reply_message(
         event.reply_token,
         messages)
