@@ -6,7 +6,9 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage, ImageMessage,ImageSendMessage
+    MessageEvent, TextMessage, TextSendMessage, 
+    ImageMessage,ImageSendMessage,ImagemapSendMessage,
+    BaseSize,URIImagemapAction,ImagemapArea
 )
 import os
 
@@ -23,6 +25,21 @@ def make_image_message():
     messages = ImageSendMessage(
         original_content_url="https://www.shimay.uno/nekoguruma/wp-content/uploads/sites/2/2018/03/20171124_194201-508x339.jpg",
         preview_image_url="https://www.shimay.uno/nekoguruma/wp-content/uploads/sites/2/2018/03/20171124_194201-508x339.jpg"
+    )
+    return messages
+
+def make_imagemap_message():
+    messages = ImagemapSendMessage(
+        base_url='https://www.shimay.uno/nekoguruma/wp-content/uploads/sites/2/2018/03/20171124_194201-508x339.jpg',
+        base_size=BaseSize(width=508,height=339),
+        actions=[
+            URIImagemapAction(
+                link_uri='https://www.shimay.uno/nekoguruma/archives/620',
+                area=ImagemapArea(
+                    x=0,y=0,width=508,height=339
+                )
+            )
+        ]
     )
     return messages
 
