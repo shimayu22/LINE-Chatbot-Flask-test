@@ -68,7 +68,7 @@ def callback():
 
 @handler.add(MessageEvent, message=(TextMessage))
 def handle_image_message(event):
-    messages = make_image_message()
+    messages = make_imagemap_message()
     print(messages)
     line_bot_api.reply_message(
         event.reply_token,
