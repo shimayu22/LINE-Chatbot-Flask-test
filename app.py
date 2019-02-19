@@ -21,8 +21,8 @@ handler = WebhookHandler(YOUR_CHANNEL_SECRET)
 
 def make_image_message():
     messages = ImageSendMessage(
-        original_content_url="",
-        preview_image_url=""
+        original_content_url="https://www.shimay.uno/nekoguruma/wp-content/uploads/sites/2/2018/03/20171124_194201-508x339.jpg",
+        preview_image_url="https://www.shimay.uno/nekoguruma/wp-content/uploads/sites/2/2018/03/20171124_194201-508x339.jpg"
     )
     return messages
 
