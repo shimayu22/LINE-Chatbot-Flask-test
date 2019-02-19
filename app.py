@@ -31,19 +31,14 @@ def make_image_message():
 
 def make_imagemap_message():
     messages = ImagemapSendMessage(
-        base_url='https://www.shimay.uno/nekoguruma/wp-content/uploads/sites/2/2018/03/20171124_194201-508x339.jpg',
+        base_url='https://www.shimay.uno/nekoguruma/wp-content/uploads/sites/2/2018/03/',
         alt_text='ブログも見てね！',
-        base_size=BaseSize(width=508,height=678),
+        base_size=BaseSize(width=508,height=339),
         actions=[
             URIImagemapAction(
                 link_uri='https://www.shimay.uno/nekoguruma/archives/620',
                 area=ImagemapArea(
                     x=0,y=0,width=508,height=339
-                )
-            ),MessageImagemapAction(
-                text='hello',
-                area=ImagemapArea(
-                    x=0,y=339,width=520,height=339
                 )
             )
         ]
