@@ -31,7 +31,7 @@ def make_image_message():
 
 def make_imagemap_message():
     messages = ImagemapSendMessage(
-        base_url='https://www.shimay.uno/nekoguruma/wp-content/uploads/sites/2/2018/03/',
+        base_url='https://www.shimay.uno/nekoguruma/wp-content/uploads/',
         alt_text='ブログも見てね！',
         base_size=BaseSize(width=508,height=339),
         actions=[
@@ -70,11 +70,14 @@ def callback():
 
 @handler.add(MessageEvent, message=(TextMessage))
 def handle_image_message(event):
-    messages = make_imagemap_message()
-    print(messages)
+    messages = make_image_message()
     line_bot_api.reply_message(
         event.reply_token,
-        messages)
+        [
+            messages,
+            TextSendMessage(text="https://www.shimay.uno/nekoguruma/archives/620")
+        ]
+    )
 
 
 if __name__ == "__main__":
