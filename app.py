@@ -31,6 +31,7 @@ def make_image_message():
 def make_imagemap_message():
     messages = ImagemapSendMessage(
         base_url='https://www.shimay.uno/nekoguruma/wp-content/uploads/sites/2/2018/03/20171124_194201-508x339.jpg',
+        alt_text='ブログも見てね！',
         base_size=BaseSize(width=508,height=339),
         actions=[
             URIImagemapAction(
