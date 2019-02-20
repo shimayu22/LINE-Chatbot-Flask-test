@@ -51,15 +51,14 @@ def make_button_template():
         template=ButtonsTemplate(
             text="どこに表示されるかな？",
             title="タイトルですよ",
-            image_aspect_ratio="square",
-            image_size="contain",
+            image_size="cover",
             thumbnail_image_url="https://www.shimay.uno/nekoguruma/wp-content/uploads/sites/2/2018/03/20171124_194201-508x339.jpg",
             actions=[
                 URIAction(
-                    link_uri="https://www.shimay.uno/nekoguruma/archives/620",
-                    label="URIアクションのLABEL",
+                    uri="https://www.shimay.uno/nekoguruma/archives/620",
+                    label="URIアクションのLABEL"
                 )
-            ],
+            ]
         )
     )
     return message_template
