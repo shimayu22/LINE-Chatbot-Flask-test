@@ -46,18 +46,21 @@ def make_imagemap_message():
     return messages
 
 def make_button_template():
-    message_template = ButtonsTemplate(
-        text="どこに表示されるかな？",
-        title="タイトルですよ",
-        image_aspect_ratio="square",
-        image_size="contain",
-        thumbnail_image_url="https://www.shimay.uno/nekoguruma/wp-content/uploads/sites/2/2018/03/20171124_194201-508x339.jpg",
-        actions=[
-            URIAction(
-                link_uri="https://www.shimay.uno/nekoguruma/archives/620",
-                label="LABEL"
-            )
-        ]
+    message_template = TemplateSendMessage(
+        alt_text="にゃーん",
+        template=ButtonsTemplate(
+            text="どこに表示されるかな？",
+            title="タイトルですよ",
+            image_aspect_ratio="square",
+            image_size="contain",
+            thumbnail_image_url="https://www.shimay.uno/nekoguruma/wp-content/uploads/sites/2/2018/03/20171124_194201-508x339.jpg",
+            actions=[
+                URIAction(
+                    link_uri="https://www.shimay.uno/nekoguruma/archives/620",
+                    label="URIアクションのLABEL",
+                )
+            ],
+        )
     )
     return message_template
 
@@ -91,10 +94,6 @@ def handle_image_message(event):
     line_bot_api.reply_message(
         event.reply_token,
         messages
-        #[
-        #    messages,
-            #TextSendMessage(text="https://www.shimay.uno/nekoguruma/archives/620")
-        #]
     )
 
 
