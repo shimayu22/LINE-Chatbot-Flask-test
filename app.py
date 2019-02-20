@@ -88,10 +88,11 @@ def handle_image_message(event):
     messages = make_button_template()
     line_bot_api.reply_message(
         event.reply_token,
-        [
-            messages,
-            TextSendMessage(text="https://www.shimay.uno/nekoguruma/archives/620")
-        ]
+        messages
+        #[
+        #    messages,
+            #TextSendMessage(text="https://www.shimay.uno/nekoguruma/archives/620")
+        #]
     )
 
 
