@@ -7,9 +7,9 @@ from linebot.exceptions import (
 )
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage, 
-    ImageMessage,ImageSendMessage,ImagemapSendMessage,
-    BaseSize,URIImagemapAction,ImagemapArea,
-    MessageImagemapAction
+    ImageMessage,ImageSendMessage,BaseSize,ImagemapArea,
+    MessageImagemapAction,TemplateSendMessage,ButtonsTemplate,
+    URIAction,ImagemapSendMessage,URIImagemapAction
 )
 import os
 
@@ -45,6 +45,21 @@ def make_imagemap_message():
     )
     return messages
 
+def make_button_template():
+    message_template = ButtonsTemplate(
+        text="どこに表示されるかな？",
+        title="タイトルですよ",
+        thumbnail_image_url="https://www.shimay.uno/nekoguruma/wp-content/uploads/sites/2/2018/03/20171124_194201-508x339.jpg",
+        actions=[
+            URIAction(
+                link_uri='https://www.shimay.uno/nekoguruma/archives/620',
+                label='LABEL'
+            )
+        ]
+    )
+    return message_template
+
+
 @app.route("/")
 def hello_world():
     return "hello world!"
@@ -70,7 +85,7 @@ def callback():
 
 @handler.add(MessageEvent, message=(TextMessage))
 def handle_image_message(event):
-    messages = make_image_message()
+    messages = make_button_template()
     line_bot_api.reply_message(
         event.reply_token,
         [
