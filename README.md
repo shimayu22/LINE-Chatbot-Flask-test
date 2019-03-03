@@ -17,3 +17,5 @@ https://qiita.com/krocks96/items/67f7510b36945eb9689b
 FlaskでLINE botを実装し，herokuにdeployするまで
 https://qiita.com/suigin/items/0deb9451f45e351acf92
 
+
+おうむ返しだけのはずが、ボタンテンプレート+URIアクションまで試した。
